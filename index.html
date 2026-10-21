@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisForge AI | Autonomous SOC & Cyber Insurance Engine</title>
+  <meta name="description" content="AI-native Autonomous SOC Incident Triage and IRDAI-Compliant Cyber Insurance Risk Quantification Engine built for Mitigata CyberForge 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <!-- Ambient Cyber Background Grid -->
+  <div class="cyber-grid-bg"></div>
+  <div class="cyber-glow-orb orb-1"></div>
+  <div class="cyber-glow-orb orb-2"></div>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-group">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">AegisForge <span class="badge-ai">AI</span></span>
+          <span class="logo-subtitle">Mitigata CyberForge Edition</span>
+        </div>
+      </div>
+      <div class="live-status-pill">
+        <span class="pulse-dot"></span>
+        <span class="status-label">AUTONOMOUS SOC ACTIVE</span>
+        <span class="status-metric">1.2M+ Ingested Logs/s</span>
+      </div>
+    </div>
+
+    <div class="nav-center-stats">
+      <div class="nav-stat-item">
+        <span class="nav-stat-label">RESILIENCE SCORE</span>
+        <span class="nav-stat-value text-cyan" id="navResilienceScore">88/100</span>
+      </div>
+      <div class="nav-stat-divider"></div>
+      <div class="nav-stat-item">
+        <span class="nav-stat-label">EXPOSURE (VaR)</span>
+        <span class="nav-stat-value text-amber" id="navExposureValue">₹ 1.42 Cr</span>
+      </div>
+      <div class="nav-stat-divider"></div>
+      <div class="nav-stat-item">
+        <span class="nav-stat-label">INSURANCE DISCOUNT</span>
+        <span class="nav-stat-value text-emerald" id="navDiscountValue">32.5%</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button class="btn-sound" id="toggleAudioBtn" title="Toggle Tactical Audio Effects">
+        <svg id="audioIcon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+        <span id="audioLabel">AUDIO FX: ON</span>
+      </button>
+
+      <button class="btn-primary" id="btnExportReport">
+        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        Export Audit Report
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Grid Dashboard Layout -->
+  <main class="dashboard-container">
+    
+    <!-- Left Column: Attack Simulation Control & Incident Stream -->
+    <section class="dash-col col-left">
+      <!-- Attack Simulation Trigger Box -->
+      <div class="panel-card sim-card">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="panel-icon pulse-red">⚡</span>
+            <h3>Interactive Threat Sandbox</h3>
+          </div>
+          <span class="badge-subtle">LIVE DEMO INJECTOR</span>
+        </div>
+        <p class="panel-description">
+          Inject real-world attack vectors to evaluate AegisForge's sub-second AI triage, MITRE mapping, and autonomous containment.
+        </p>
+
+        <div class="sim-buttons-grid">
+          <button class="sim-btn" data-scenario="ransomware">
+            <div class="sim-btn-header">
+              <span class="sim-tag tag-crimson">CRITICAL</span>
+              <span class="sim-time">Zero-Hour</span>
+            </div>
+            <div class="sim-btn-title">LockBit 3.0 Ransomware</div>
+            <div class="sim-btn-sub">VSS purge, LSASS dump, SMB lateral spread</div>
+          </button>
+
+          <button class="sim-btn" data-scenario="dpdp">
+            <div class="sim-btn-header">
+              <span class="sim-tag tag-amber">REGULATORY</span>
+              <span class="sim-time">DPDP 2023</span>
+            </div>
+            <div class="sim-btn-title">PII Exfiltration (BOLA/API)</div>
+            <div class="sim-btn-sub">120k Aadhaar/PAN records accessed via API leak</div>
+          </button>
+
+          <button class="sim-btn" data-scenario="cloud">
+            <div class="sim-btn-header">
+              <span class="sim-tag tag-blue">CLOUD IAM</span>
+              <span class="sim-time">Multi-Region</span>
+            </div>
+            <div class="sim-btn-title">AWS Shadow Admin Hijack</div>
+            <div class="sim-btn-sub">Compromised CI/CD key, privilege escalation</div>
+          </button>
+
+          <button class="sim-btn" data-scenario="ai_injection">
+            <div class="sim-btn-header">
+              <span class="sim-tag tag-purple">GEN AI</span>
+              <span class="sim-time">LLM Attack</span>
+            </div>
+            <div class="sim-btn-title">Prompt Injection & Exfil</div>
+            <div class="sim-btn-sub">Indirect jailbreak extracting proprietary RAG data</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Real-Time Triage Telemetry Stream -->
+      <div class="panel-card flex-grow incident-list-card">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="panel-icon text-cyan">📡</span>
+            <h3>Real-Time Security Incidents</h3>
+          </div>
+          <span class="badge-count" id="activeIncidentCount">4 Active</span>
+        </div>
+
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-filter="all">All Telemetry</button>
+          <button class="tab-btn" data-filter="critical">Critical</button>
+          <button class="tab-btn" data-filter="high">High</button>
+          <button class="tab-btn" data-filter="contained">Contained</button>
+        </div>
+
+        <div class="incident-stream" id="incidentList">
+          <!-- Dynamically populated incidents -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Center Column: Deep AI Investigation & Threat Graph Visualizer -->
+    <section class="dash-col col-center">
+      <!-- Live Attack Graph & Radar -->
+      <div class="panel-card radar-card">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="panel-icon text-emerald">🌐</span>
+            <h3>Attack Surface & Topology Mesh</h3>
+          </div>
+          <div class="radar-controls">
+            <span class="mesh-stat" id="meshNodesCount">12 Monitored Assets</span>
+            <button class="btn-ghost-sm" id="btnRecenterRadar">Center Topology</button>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="threatRadarCanvas"></canvas>
+          <div class="radar-legend">
+            <span class="legend-item"><span class="dot dot-safe"></span> Safe Node</span>
+            <span class="legend-item"><span class="dot dot-warn"></span> Suspicious</span>
+            <span class="legend-item"><span class="dot dot-threat"></span> Compromised</span>
+            <span class="legend-item"><span class="dot dot-contained"></span> Isolated / Shielded</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Investigation & Autonomous Playbook Center -->
+      <div class="panel-card flex-grow detail-card" id="detailPanel">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="panel-icon text-cyan">🤖</span>
+            <h3 id="detailTitle">Autonomous AI Triage Engine</h3>
+          </div>
+          <span class="severity-pill" id="detailSeverity">HIGH SEVERITY (89/100)</span>
+        </div>
+
+        <!-- Investigation Workflow Steps -->
+        <div class="triage-workflow" id="triageWorkflow">
+          <div class="step-card step-done">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-title">Telemetry Ingestion & Corroboration</div>
+              <div class="step-desc" id="step1Desc">Cross-correlated 4,120 events from CrowdStrike EDR, AWS CloudTrail & Suricata IDS.</div>
+            </div>
+            <span class="step-badge">12ms</span>
+          </div>
+
+          <div class="step-card step-done">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-title">MITRE ATT&CK Classification</div>
+              <div class="step-desc" id="step2Desc">Matched T1486 (Data Encrypted for Impact) and T1059.001 (PowerShell Execution).</div>
+            </div>
+            <span class="step-badge">24ms</span>
+          </div>
+
+          <div class="step-card step-done">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="step-title">Root Cause & Blast Radius</div>
+              <div class="step-desc" id="step3Desc">Compromised Service Account 'svc-backup' accessed via reused credential from dark web dump.</div>
+            </div>
+            <span class="step-badge">38ms</span>
+          </div>
+
+          <div class="step-card step-active">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <div class="step-title">Autonomous Containment Playbook</div>
+              <div class="step-desc" id="step4Desc">Recommended Action: Micro-segment host 10.0.4.18, revoke Kerberos ticket-granting tokens, purge malicious registry runkeys.</div>
+            </div>
+            <span class="step-badge text-emerald">READY</span>
+          </div>
+        </div>
+
+        <!-- Interactive Containment Action Bar -->
+        <div class="containment-action-box">
+          <div class="action-info">
+            <span class="action-status-label">MITIGATA AUTO-PILOT RECOMMENDATION:</span>
+            <div class="action-summary" id="actionSummaryText">Execute 1-Click Microsegmentation & Credential Invalidation</div>
+          </div>
+          <div class="action-btn-group">
+            <button class="btn-execute-containment" id="btnExecuteContainment">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Execute Containment</span>
+            </button>
+            <button class="btn-ghost" id="btnDismissAlert">Mark False Positive</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Mitigata IRDAI Cyber Insurance & Regulatory Risk Quantification -->
+    <section class="dash-col col-right">
+      
+      <!-- IRDAI Cyber Insurance Underwriting Card -->
+      <div class="panel-card insurance-card">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="panel-icon text-cyan">🛡️</span>
+            <h3>IRDAI Cyber Underwriting</h3>
+          </div>
+          <span class="badge-mitigata">MITIGATA CORE</span>
+        </div>
+        
+        <p class="panel-description">
+          Real-time algorithmic risk quantification mapping active security posture to IRDAI cyber insurance premium valuation.
+        </p>
+
+        <!-- Metric Gauges -->
+        <div class="score-display-card">
+          <div class="score-radial">
+            <svg class="radial-svg" viewBox="0 0 100 100">
+              <circle class="radial-track" cx="50" cy="50" r="40" stroke-width="8" fill="none"/>
+              <circle class="radial-progress" id="radialProgressCircle" cx="50" cy="50" r="40" stroke-width="8" fill="none" stroke-dasharray="251.2" stroke-dashoffset="30"/>
+            </svg>
+            <div class="score-center-text">
+              <span class="score-big" id="scoreVal">88</span>
+              <span class="score-label">RESILIENCE</span>
+            </div>
+          </div>
+
+          <div class="score-breakdown">
+            <div class="score-row">
+              <span class="score-row-title">Identity & MFA Posture</span>
+              <div class="score-bar-bg"><div class="score-bar-fill fill-emerald" style="width: 92%"></div></div>
+              <span class="score-pct">92%</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-title">Mean Time to Respond (MTTR)</span>
+              <div class="score-bar-bg"><div class="score-bar-fill fill-cyan" style="width: 95%"></div></div>
+              <span class="score-pct">1.4m</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-title">Attack Surface Exposure</span>
+              <div class="score-bar-bg"><div class="score-bar-fill fill-amber" id="barSurface" style="width: 28%"></div></div>
+              <span class="score-pct" id="pctSurface">Low (28%)</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-title">DPDP Act Compliance</span>
+              <div class="score-bar-bg"><div class="score-bar-fill fill-emerald" id="barCompliance" style="width: 86%"></div></div>
+              <span class="score-pct" id="pctCompliance">86%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Value at Risk (VaR) Breakdown -->
+        <div class="financial-exposure-card">
+          <div class="fin-header">
+            <span>FINANCIAL VALUE AT RISK (VaR)</span>
+            <span class="fin-badge" id="breachRiskLevel">MODERATE EXPOSURE</span>
+          </div>
+          <div class="fin-main-val" id="finExposureVal">₹ 1,42,50,000</div>
+          
+          <div class="fin-details-list">
+            <div class="fin-detail-item">
+              <span class="fin-item-name">DPDP Act Regulatory Exposure</span>
+              <span class="fin-item-val text-amber" id="finDpdpVal">₹ 65,00,000</span>
+            </div>
+            <div class="fin-detail-item">
+              <span class="fin-item-name">Business Interruption Cost/Day</span>
+              <span class="fin-item-val" id="finBicVal">₹ 42,50,000</span>
+            </div>
+            <div class="fin-detail-item">
+              <span class="fin-item-name">Forensics & CERT-In Legal Breach SLA</span>
+              <span class="fin-item-val" id="finLegalVal">₹ 35,00,000</span>
+            </div>
+          </div>
+
+          <div class="premium-incentive-box">
+            <div class="incentive-title">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Mitigata Policyholder Dynamic Pricing:
+            </div>
+            <div class="incentive-val" id="incentiveSavingsText">
+              Current SOC efficiency qualifies for <strong>32.5% Premium Discount</strong> (Annual Savings: ₹ 4,80,000)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive AI Security Copilot (Chat) -->
+      <div class="panel-card flex-grow chat-card">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="panel-icon text-cyan">💬</span>
+            <h3>Aegis AI Copilot</h3>
+          </div>
+          <span class="badge-subtle">RAG INVESTIGATOR</span>
+        </div>
+
+        <!-- Chat history -->
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg msg-ai">
+            <div class="msg-author">Aegis AI SOC Analyst</div>
+            <div class="msg-content">
+              Welcome to the AegisForge Operations Console. I am continuously monitoring your attack telemetry across AWS, Active Directory, and APIs. Select any scenario on the left or ask me questions about breach exposure, CERT-In reporting, or active containments.
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div class="quick-prompts">
+          <button class="chip-btn" data-query="Draft CERT-In 6-hour incident disclosure report">Draft CERT-In Report</button>
+          <button class="chip-btn" data-query="How does this incident affect our cyber insurance premium?">Check Insurance Impact</button>
+          <button class="chip-btn" data-query="Summarize MITRE ATT&CK vector and lateral risk">Explain MITRE Path</button>
+        </div>
+
+        <!-- Chat input form -->
+        <form class="chat-input-bar" id="chatForm">
+          <input type="text" id="chatInput" placeholder="Ask Aegis AI (e.g. 'Explain DPDP Act exposure')..." autocomplete="off">
+          <button type="submit" class="btn-send" id="btnSendChat">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Report Export Modal -->
+  <div class="modal-backdrop" id="reportModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="panel-icon text-cyan">📋</span>
+          <div>
+            <h3>IRDAI & CERT-In Forensic Incident Audit Summary</h3>
+            <span class="modal-sub" id="modalTimestamp">Generated Oct 2026 | Mitigata CyberForge</span>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btnCloseModal">&times;</button>
+      </div>
+      <div class="modal-body" id="modalReportContent">
+        <!-- Report rendered here -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn-ghost" id="btnPrintReport">Print / Save as PDF</button>
+        <button class="btn-primary" id="btnCopyReport">Copy Forensic Hash & JSON</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript App Entry -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

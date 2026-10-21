@@ -1,0 +1,14 @@
+{
+  "name": "aegisforge-mitigata",
+  "version": "1.0.0",
+  "description": "Autonomous AI SOC Incident Triage & Cyber Insurance Risk Quantification Engine - CyberForge 2026",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --port 3000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5"
+  }
+}
